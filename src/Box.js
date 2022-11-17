@@ -1,14 +1,15 @@
 
 import './Box.css';
 
-function Box({color, width, height}) {
+function Box({backgroundColor, width, height, deleteBox}) {
     const myStyles = {
-        "backgroundColor": color,
+        "backgroundColor": backgroundColor,
         "width": width,
         "height": height
     }
-    console.log(color, width, height, "<<<<<<<<<<<< In BOX.js");
-    
+
+
+
   return (
     <div className="Box" style={ myStyles }>
     </div>

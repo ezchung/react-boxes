@@ -1,38 +1,36 @@
 import React, { useState } from "react";
 import NewBoxForm from "./NewBoxForm";
 import { v4 as uuid } from 'uuid';
+import Box from "./Box"
 
 
 /**
+ * Document what state object is -- { key/value pairs }
  */
 
 function BoxList() {
   const [boxes, setBoxes] = useState([]);
 
-  function renderBox() {
-    return (
-        <ul>
-          {boxes.map(box => (
-              <li key={box.id}>
-                {box.name}: {box.qty}
-              </li>
-          ))}
-        </ul>
-    );
-  }
-  // end
 
-  /** Add new item object to cart. */
+  /** Initialize a new box */
   function addBox(boxInfo) {
     let newBox = { ...boxInfo, id: uuid() };
     setBoxes(boxes => [...boxes, newBox]);
   }
   // end
 
+  //delete box --> pass this to each box
+  function deleteBox(id) {
+    boxes.filter(box =>box.id !== id)}
+
   return (
-    <div className="ShoppingList">
+    <div className="BoxList">
       <NewBoxForm addBox={addBox} />
-      {renderBox()}
+      {boxes.map(box =>
+        <Box backgroundColor={box.backgroundColor}
+          width={box.width}
+          height={box.height}
+          deleteBox={deleteBox} />)}
     </div>
   );
 }
