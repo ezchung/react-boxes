@@ -21,7 +21,11 @@ function BoxList() {
 
   //delete box --> pass this to each box
   function deleteBox(id) {
-    boxes.filter(box =>box.id !== id)}
+    // evt.preventDefault();
+    // console.log(evt.target, "<<<<<<<<<<<< delete Box event")
+    // const id = evt.target.id
+    boxes.filter(box =>box.id !== id)
+  }
 
   return (
     <div className="BoxList">
@@ -30,7 +34,9 @@ function BoxList() {
         <Box backgroundColor={box.backgroundColor}
           width={box.width}
           height={box.height}
-          deleteBox={deleteBox} />)}
+          // deleteBox={deleteBox} 
+          // id={box.id}
+          />)}
     </div>
   );
 }

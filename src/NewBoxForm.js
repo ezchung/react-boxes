@@ -19,11 +19,6 @@ function NewBoxForm({ addBox }) {
         }));
     }
 
-    // function handleDelete(evt){
-    //     //Remove from box list
-    //     //
-    // }
-
     function handleSubmit(evt){
         evt.preventDefault();
         addBox(formData);
